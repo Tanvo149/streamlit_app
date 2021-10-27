@@ -27,3 +27,5 @@ rows = run_query(QUERY)
 st.write("check this data")
 for row in rows:
     print(row)
+
+st.write(rows)

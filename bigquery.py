@@ -25,3 +25,5 @@ def run_query(query):
 rows = run_query(QUERY)
 
 st.write("check this data")
+for row in rows:
+    print(row)

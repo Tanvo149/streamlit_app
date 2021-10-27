@@ -17,6 +17,12 @@ option = st.sidebar.selectbox("Which Dashboard?", ('wallstreetbets','chart','pat
 if option == 'stockwits':
     st.subheader('stockwits')
 
+    r = requests.get("https://api.stocktwits.com/api/2/streams/symbol/AAPL.json")
+
+    data = r.json()
+
+    st.write(data)
+
 QUERY = (
     'SELECT * FROM `tvv-airflow-tutorial-demo.ARK_ETF.history`'
      'LIMIT 100'
@@ -32,8 +38,8 @@ def run_query(query):
 
 rows = run_query(QUERY)
 
-st.write("check this data")
-for row in rows:
-    print(row)
+##for row in rows:
+#st.write("check this data")
+#    print(row)
 
-st.write(rows)
+#st.write(rows)

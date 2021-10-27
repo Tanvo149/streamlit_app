@@ -15,9 +15,10 @@ st.sidebar.title("Options")
 option = st.sidebar.selectbox("Which Dashboard?", ('wallstreetbets','chart','pattern','twitter','stockwits'))
 
 if option == 'stockwits':
+    symbol = st.sidebar.text_input("Symbol", max_chars=5)
     st.subheader('stockwits')
 
-    r = requests.get("https://api.stocktwits.com/api/2/streams/symbol/AAPL.json")
+    r = requests.get(f"https://api.stocktwits.com/api/2/streams/symbol/{symbol}.json")
 
     data = r.json()
 

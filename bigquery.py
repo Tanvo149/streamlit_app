@@ -1,6 +1,7 @@
 import streamlit as st
 from google.oauth2 import service_account
 from google.cloud import bigquery
+import requests
 
 #need update
 # Create API client
@@ -9,7 +10,12 @@ credentials = service_account.Credentials.from_service_account_info(
 )
 client = bigquery.Client(credentials=credentials)
 
-option = st.selectbox("Which Dashboard?", ('wallstreetbets','chart','pattern'))
+st.sidebar.title("Options")
+
+option = st.sidebar.selectbox("Which Dashboard?", ('wallstreetbets','chart','pattern','twitter','stockwits'))
+
+if option == 'stockwits':
+    st.subheader('stockwits')
 
 QUERY = (
     'SELECT * FROM `tvv-airflow-tutorial-demo.ARK_ETF.history`'

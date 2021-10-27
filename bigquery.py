@@ -22,7 +22,11 @@ if option == 'stockwits':
 
     data = r.json()
 
-    st.write(data)
+    for message in data['messages']:
+        st.image(message['user']['avatar_url'])
+        st.write(message['user']['username'])
+        st.write(message['created_at'])
+        st.write(message['body'])
 
 QUERY = (
     'SELECT * FROM `tvv-airflow-tutorial-demo.ARK_ETF.history`'

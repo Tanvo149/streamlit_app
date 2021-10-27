@@ -9,6 +9,8 @@ credentials = service_account.Credentials.from_service_account_info(
 )
 client = bigquery.Client(credentials=credentials)
 
+option = st.selectbox("Which Dashboard?", ('wallstreetbets','chart','pattern'))
+
 QUERY = (
     'SELECT * FROM `tvv-airflow-tutorial-demo.ARK_ETF.history`'
      'LIMIT 100'
